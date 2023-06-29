@@ -1,5 +1,4 @@
-// const playButton = document.querySelector("#Play");
-// playButton.addEventListener("click", playGame());
+
 
 function compSelect() {
     var compChoice = ['R', 'P', 'S'];
