@@ -15,12 +15,13 @@ totalGames: 0,
 };
 
 function decideWinner(computer, user){
-    
 
-    if(user === computer){
+    if(user == computer){
         alert("It's a tie!");
         stats.ties++;
-    } else if((user === 'r' && computer === 'S') || (user === 'p' && computer === 'R') || (user === 's' && computer === 'P')){
+    } else if((user == "R" && computer == "S") || 
+    (user == "P" && computer == "R") || 
+    (user == "S" && computer == "P")){
         alert("You Win!");
         stats.wins++;
     } else {
@@ -30,17 +31,24 @@ function decideWinner(computer, user){
     stats.totalGames++;
 
     alert(`Wins: ${stats.wins} \nLoses: ${stats.loses} \nTies: ${stats.ties}\nTotal Game Played: ${stats.totalGames}`);
+    return;
 }
 
 
 function playGame(){
-    var userChoice = prompt("R, P, or S");
-  decideWinner(compSelect(), userChoice);  
+    var computerWork = compSelect();
+    var userChoice = prompt("R, P, or S!");
+    userChoice = userChoice.toUpperCase();
+    console.log(computerWork);
+    console.log(userChoice);
+    decideWinner(computerWork, userChoice);  
+    var replay = confirm("Do you wish to replay?");
+    if(replay){
+        playGame();
+    }
 }
 
-
-do {
     playGame();
-    var replay = confirm("Do you wish to replay?");
+
     
-} while (replay);
+    
